@@ -49,7 +49,10 @@ int	main(int argc, char **argv)
 	int		serverpid;
 
 	if (argc != 3 && argc != 4)
-		return (ft_messagequit("Pleaser, enter the server's PID and a string"));
+	{
+		ft_putendl("Pleaser, enter the server's PID and a string");
+		return (EXIT_SUCCESS);
+	}
 	serverpid = ft_atoi(argv[1]);
 	signal(SIGUSR1, check_handler);
 	ft_sendstr(serverpid, argv[2]);
